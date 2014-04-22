@@ -1,0 +1,25 @@
+@import "{{ project_name }}/assets/stylesheets/scss/base.scss";
+
+$footer_height: 100px;
+
+html, body {
+  height: 100%;
+}
+
+.page {
+  clear: both;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin-bottom: -$footer_height;
+
+  .page-footer_root {
+    height: $footer_height;
+  }
+}
+
+.page-footer {
+  clear: both;
+  position: relative;
+  height: $footer_height;
+}

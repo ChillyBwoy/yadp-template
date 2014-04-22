@@ -1,0 +1,6 @@
+.DS_Store
+*.pyc
+.env
+var/
+public/media
+public/static

@@ -1,0 +1,97 @@
+$page_width: 960px;
+
+@function px2pt($px) { 
+  @return $px * 0.75pt;
+}
+
+@mixin layout {
+  margin: 0 auto;
+  width: $page_width;
+}
+
+@mixin grid_column($columns, $prefix, $sufix, $gutter, $border_right, $border_left, $cw, $cm) {
+  $width: (($cw + $cm) * $columns) - $cm;
+  $prefix_width: ($cw + $cm) * $prefix;
+  $sufix_width: ($cw + $cm) * $sufix;
+  @if $gutter {
+    $sufix_width: $sufix_width + $cm;
+  }
+  display: inline-block;
+  margin-left: $prefix_width;
+  margin-right: $sufix_width;
+  width: $width - $border_left - $border_right;
+  vertical-align: top;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+@mixin appearance-disabled {
+  outline: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+}
+
+@mixin border-radius($value, $side: "") {
+  -webkit-border#{$side}-radius: $value;
+     -moz-border#{$side}-radius: $value;
+      -ms-border#{$side}-radius: $value;
+          border#{$side}-radius: $value;
+}
+
+@mixin box-sizing($value) {
+  -webkit-box-sizing: $value;
+     -moz-box-sizing: $value;
+          box-sizing: $value;
+}
+
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+     -moz-box-shadow: $shadow;
+      -ms-box-shadow: $shadow;
+          box-shadow: $shadow;
+}
+
+@mixin filter-blur($radius) {
+  -webkit-filter: blur($radius);
+     -moz-filter: blur($radius);
+      -ms-filter: blur($radius);
+          filter: blur($radius);
+}
+
+@mixin hyphens($value: auto) {
+  -webkit-hyphens: $value;
+     -moz-hyphens: $value;
+      -ms-hyphens: $value;
+          hyphens: $value;
+}
+
+@mixin transform($value) {
+  -webkit-transform: $value;
+     -moz-transform: $value;
+      -ms-transform: $value;
+          transform: $value;
+}
+
+@mixin transform-origin($value) {
+  -webkit-transform-origin: $value;
+     -moz-transform-origin: $value;
+      -ms-transform-origin: $value;
+          transform-origin: $value;
+}
+
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+     -moz-transition: $transition;
+      -ms-transition: $transition;
+          transition: $transition;
+}
+
+@mixin user-select($value: none) {
+  -webkit-touch-callout: $value;
+    -webkit-user-select: $value;
+       -moz-user-select: $value;
+        -ms-user-select: $value;
+            user-select: $value;
+}
+

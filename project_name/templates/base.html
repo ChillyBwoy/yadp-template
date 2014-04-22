@@ -1,0 +1,28 @@
+{% spaceless %}
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8 lte9 lte8" lang="ru"><![endif]-->
+<!--[if IE 9]><html class="ie ie9 lte9" lang="ru"><![endif]-->
+<!--[if gt IE 9]><html lang="ru"><![endif]--><!--[if !IE]><!--><html lang="ru"><!--<![endif]-->
+    <head>
+        {% load gears staticfiles %}
+        <title>{% block title %}{{ project_name }}{% endblock %}</title>
+        <meta charset="utf-8">
+        <link type="image/png" href="" rel="icon">
+        <link href="" rel="apple-touch-icon">
+        {% block assets_css %}
+            {% css_asset_tag 'stylesheets/application.css' %}
+        {% endblock assets_css %}
+        {% block extra_style %}{% endblock %}
+    </head>
+    <body>
+        <div class="page">
+            <header class="page-header"></header>
+            {% block content %}{% endblock %}
+        </div>
+        <footer class="page-footer"></footer>
+        {% block assets_js %}
+            {% js_asset_tag "javascripts/application.js" %}
+        {% endblock assets_js %}
+    </body>
+</html>
+{% endspaceless %}
